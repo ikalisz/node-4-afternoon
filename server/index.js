@@ -5,8 +5,6 @@ const session = require('express-session')
 const {SERVER_PORT, SESSION_SECRET} = process.env
 const checkForSession = require('./middlewares/checkForSession')
 const swag_ctrl = require('./controllers/swagController')
-
-
 app.use(express.json())
 app.use(session({
     secret: SESSION_SECRET,
