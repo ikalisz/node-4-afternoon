@@ -1,13 +1,21 @@
 const users = require('../models/users')
-const id = 1
+let id = 1
 module.exports = {
     login: (req, res) => {
         const {username, password} = req.body
         if (username && password) {
-            let loginUser = users.filter(user => {
+            let loginUser = users.find(user => {
+                console.log(user)
                 return user.username === username && user.password === password
             })
-            res.status(200).send(loginUser)
+            console.log(loginUser)
+            if (loginUser) {
+                console.log(req.session)
+                console.log(req.session.cart)
+                res.status(200).send(loginUser)
+            } else {
+                res.status(500).send(`i hate this`)
+            }
         }
     },
     register: (req, res) => {

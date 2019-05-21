@@ -12,7 +12,7 @@ app.use(express.static(__dirname +'/../build'))
 app.use(express.json())
 app.use(session({
     secret: SESSION_SECRET,
-    resave: false,
+    resave: true,
     saveUninitialized: true,
     cookie: {
         maxAge: 1000 * 60 * 60
